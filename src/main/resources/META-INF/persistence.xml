@@ -11,7 +11,7 @@
 		<class>br.com.enade.model.Tbquestao</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/enade" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://mysqldb/enade" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="root" />
 
