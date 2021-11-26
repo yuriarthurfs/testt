@@ -4,13 +4,3 @@ stages:
   - build
   - test
 
-before_script:
-  - chmod +x mvnw
-
-test:
-  state: test
-  script: ./mvnw test
-
-build:
-  stage: build
-  script: ./mvnw package
