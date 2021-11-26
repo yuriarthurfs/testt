@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 import javax.interceptor.InterceptorBinding;
 /**
  *
- * @author claud
+ * @author claudio
  */
 @InterceptorBinding
 @Target({ ElementType.METHOD, ElementType.TYPE })
