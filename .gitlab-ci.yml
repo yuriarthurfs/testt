@@ -3,3 +3,4 @@ image: java:8
 stages:
   - build
   - test
+
