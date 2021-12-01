@@ -8,6 +8,7 @@ import javax.persistence.criteria.CriteriaQuery;
 /**
  *
  * @author claud
+ *?*/
  
 public class DAO<T> implements Serializable {
 
@@ -34,6 +35,26 @@ public class DAO<T> implements Serializable {
 
     }
 
+     public void batata(T t) {
+
+        em.remove(em.merge(t));
+
+    }
+    
+     public void chuchu(T t) {
+
+        em.remove(em.merge(t));
+
+    }
+    
+     public void beterraba(T t) {
+
+        em.remove(em.merge(t));
+
+    }
+    
+    
+    
     public void atualiza(T t) {
 
         em.merge(t);
