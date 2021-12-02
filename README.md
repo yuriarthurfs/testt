@@ -1,5 +1,4 @@
-Trabalho ENADE
-Teste de Integração com o GitLab
+Trabalho ENADE.
 
 Java = jdk1.8.0_281
 apache-tomcat-9.0.53
