@@ -61,7 +61,7 @@ public class UsuarioDao implements Serializable {
 			query.getSingleResult();
 		} catch (Exception e) {
 			System.err.println(e);
-			return true;
+			
 		}
 		return true;
 	}
