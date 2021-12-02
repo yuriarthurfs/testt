@@ -89,11 +89,11 @@ public class UsuarioBean implements Serializable {
 		if (this.usuario.getIdUsuario() == null && login.getUsuarioLogado().getTbTipoUsuarioidTipoUsuario().getIdTipoUsuario() != 2) {
 			this.dao.adiciona(this.usuario);
 		} else if (login.getUsuarioLogado().getTbTipoUsuarioidTipoUsuario().getIdTipoUsuario() != 2) {
+			this.gravarTipoUsuario();
 			this.dao.atualiza(this.usuario);
 		}
 
 		this.usuarios = this.dao.listaTodos();
-		this.gravarTipoUsuario();
 		this.usuario = new Tbusuario();
 	}
 
