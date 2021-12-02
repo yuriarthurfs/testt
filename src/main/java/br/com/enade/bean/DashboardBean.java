@@ -60,7 +60,7 @@ public class DashboardBean implements Serializable {
 			graficar(resultados);
 		} catch (Exception e) {
 		}
-
+                 
 	}
 
 	private void graficar(List<Tbresultado> listaResultado) {

@@ -24,7 +24,6 @@ public class DAO<T> implements Serializable {
 
     public void adiciona(T t) {
 
-        // persiste o objeto
         em.persist(t);
 
     }
