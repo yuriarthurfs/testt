@@ -54,14 +54,15 @@ public class ResultadoBean implements Serializable {
 
 	@Transacional
 	public String gravar() {
+
 		if (this.resultado.getIdResultado() == null) {
 			this.resultDao.adiciona(this.resultado);
-			this.listResultado = this.resultDao.listarTodos();
 		} else {
 			this.resultDao.atualiza(resultado);
-			this.listResultado = this.resultDao.listarTodos();
 		}
 
+		this.listResultado = this.resultDao.listarTodos();
+		this.resultado = new Tbresultado();
 		this.resultado = new Tbresultado();
 
 		return "resultado?faces-redirect=true";

@@ -64,15 +64,14 @@ public class QuestaoBean implements Serializable {
 
 		if (this.questao.getIdQuestao() == null
 				&& login.getUsuarioLogado().getTbTipoUsuarioidTipoUsuario().getIdTipoUsuario() != 2) {
-			this.gravarTipoQuesta();
 			this.questaoDao.adiciona(this.questao);
-			this.questoes = this.questaoDao.listarTodos();
 		} else {
-			this.gravarTipoQuesta();
 			this.gravarProva();
 			this.questaoDao.atualiza(this.questao);
-			this.questoes = this.questaoDao.listarTodos();
 		}
+
+		this.gravarTipoQuesta();
+		this.questoes = this.questaoDao.listarTodos();
 		this.questao = new Tbquestao();
 
 	}
@@ -85,8 +84,9 @@ public class QuestaoBean implements Serializable {
 				&& login.getUsuarioLogado().getTbTipoUsuarioidTipoUsuario().getIdTipoUsuario() == 2L) {
 			this.questao.setTbTipoQuestaoidTipoQuestao(this.questao.getTbTipoQuestaoidTipoQuestao());
 			this.questaoDao.adiciona(this.questao);
-			this.questoes = this.questaoDao.listarTodos();
 		}
+
+		this.questoes = this.questaoDao.listarTodos();
 		this.questao = new Tbquestao();
 	}
 

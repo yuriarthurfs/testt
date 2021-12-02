@@ -86,18 +86,15 @@ public class UsuarioBean implements Serializable {
 	public void gravar() {
 		System.out.println("Gravando usuario " + this.usuario.getNomeUsuario());
 
-		if (this.usuario.getIdUsuario() == null
-				&& login.getUsuarioLogado().getTbTipoUsuarioidTipoUsuario().getIdTipoUsuario() != 2) {
-			this.gravarTipoUsuario();
+		if (this.usuario.getIdUsuario() == null && login.getUsuarioLogado().getTbTipoUsuarioidTipoUsuario().getIdTipoUsuario() != 2) {
 			this.dao.adiciona(this.usuario);
-			this.usuarios = this.dao.listaTodos();
 		} else if (login.getUsuarioLogado().getTbTipoUsuarioidTipoUsuario().getIdTipoUsuario() != 2) {
 			this.gravarTipoUsuario();
 			this.dao.atualiza(this.usuario);
-			this.usuarios = this.dao.listaTodos();
 		}
-		this.usuario = new Tbusuario();
 
+		this.usuarios = this.dao.listaTodos();
+		this.usuario = new Tbusuario();
 	}
 
 	@Transacional
@@ -115,20 +112,19 @@ public class UsuarioBean implements Serializable {
 	public void salvar() {
 		System.out.println("Gravando usuario " + this.usuario.getNomeUsuario());
 
-		if (this.usuario.getIdUsuario() == null
-				&& login.getUsuarioLogado().getTbTipoUsuarioidTipoUsuario().getIdTipoUsuario() != 1) {
+		if (this.usuario.getIdUsuario() == null && login.getUsuarioLogado().getTbTipoUsuarioidTipoUsuario().getIdTipoUsuario() != 1) {
 			this.gravarTipoUsuario();
 			if (this.usuario.getTbTipoUsuarioidTipoUsuario().getIdTipoUsuario() == 2) {
 				this.dao.adiciona(this.usuario);
-				this.usuarios = this.dao.listaTodos();
 			}
 		} else if (login.getUsuarioLogado().getTbTipoUsuarioidTipoUsuario().getIdTipoUsuario() != 1) {
 			this.gravarTipoUsuario();
 			if (this.usuario.getTbTipoUsuarioidTipoUsuario().getIdTipoUsuario() == 2) {
 				this.dao.atualiza(this.usuario);
-				this.usuarios = this.dao.listaTodos();
 			}
 		}
+
+		this.usuarios = this.dao.listaTodos();
 		this.usuario = new Tbusuario();
 
 	}
@@ -136,7 +132,6 @@ public class UsuarioBean implements Serializable {
 	@Transacional
 	public void remover(Tbusuario usuario) {
 		System.out.println("Removendo usuario" + usuario.getNomeUsuario());
-
 		this.dao.remove(usuario);
 	}
 

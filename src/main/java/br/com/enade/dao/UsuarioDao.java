@@ -60,8 +60,8 @@ public class UsuarioDao implements Serializable {
 		try {
 			query.getSingleResult();
 		} catch (Exception e) {
-			System.err.println(e);
-			return true;
+			System.err.println(e.fillInStackTrace());
+			return false;
 		}
 		return true;
 	}
