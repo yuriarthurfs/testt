@@ -45,16 +45,13 @@ public class DAO<T> implements Serializable {
         CriteriaQuery<T> query = em.getCriteriaBuilder().createQuery(classe);
         query.select(query.from(classe));
 
-        List<T> lista = em.createQuery(query).getResultList();
-
-        return lista;
+        return em.createQuery(query).getResultList();
     }
 
     public T buscaPorId(Long id) {
 
-        T instancia = em.find(classe, id);
+        return em.find(classe, id);
 
-        return instancia;
     }
 
     public int contaTodos() {
@@ -70,10 +67,8 @@ public class DAO<T> implements Serializable {
         CriteriaQuery<T> query = em.getCriteriaBuilder().createQuery(classe);
         query.select(query.from(classe));
 
-        List<T> lista = em.createQuery(query).setFirstResult(firstResult)
+        return em.createQuery(query).setFirstResult(firstResult)
                 .setMaxResults(maxResults).getResultList();
-
-        return lista;
     }
 
 }

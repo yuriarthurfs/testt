@@ -59,6 +59,7 @@ public class DashboardBean implements Serializable {
 			resultados = resdao.listarTodos();
 			graficar(resultados);
 		} catch (Exception e) {
+                    throw new RuntimeException(e);
 		}
 
 	}
