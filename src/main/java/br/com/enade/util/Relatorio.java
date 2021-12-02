@@ -36,6 +36,7 @@ public class Relatorio implements Serializable {
     
     @Inject
     EntityManager em;
+    
     private HttpServletResponse response;
     private FacesContext context;
     private ByteArrayOutputStream baos;
