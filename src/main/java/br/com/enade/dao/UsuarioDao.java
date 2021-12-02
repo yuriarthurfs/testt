@@ -13,67 +13,68 @@ import br.com.enade.model.Tbusuario;
 
 public class UsuarioDao implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Inject
-	EntityManager em;
+    @Inject
+    EntityManager em;
 
-	private DAO<Tbusuario> dao;
+    private DAO<Tbusuario> dao;
 
-	@PostConstruct
-	void init() {
-		this.dao = new DAO<Tbusuario>(this.em, Tbusuario.class);
-	}
+    @PostConstruct
+    void init() {
+	this.dao = new DAO<Tbusuario>(this.em, Tbusuario.class);
+    }
 
-	public Tbusuario buscarPorId(Long usuarioId) {
-		return this.dao.buscaPorId(usuarioId);
-	}
+    public Tbusuario buscarPorId(Long usuarioId) {
+	return this.dao.buscaPorId(usuarioId);
+    }
 
-	public void adiciona(Tbusuario usuario) {
-		this.dao.adiciona(usuario);
-	}
+    public void adiciona(Tbusuario usuario) {
+	this.dao.adiciona(usuario);
+    }
 
-	public void atualiza(Tbusuario usuario) {
-		this.dao.atualiza(usuario);
-	}
+    public void atualiza(Tbusuario usuario) {
+	this.dao.atualiza(usuario);
+    }
 
-	public void remove(Tbusuario usuario) {
-		this.dao.remove(usuario);
-	}
+    public void remove(Tbusuario usuario) {
+	this.dao.remove(usuario);
+    }
 
-	public List<Tbusuario> listaTodos() {
-		return this.dao.listaTodos();
-	}
+    public List<Tbusuario> listaTodos() {
+	return this.dao.listaTodos();
+    }
+
+    public Tbtipousuario buscarTipo() {
+	return em.find(Tbtipousuario.class, 1L);
+    }
+
+    public boolean existe(Tbusuario usuario) {
 	
-	public Tbtipousuario buscarTipo() {
-		return em.find(Tbtipousuario.class, 2L);
+
+	TypedQuery<Tbusuario> query = em.createQuery(
+		"select u from Tbusuario u where u.emailUsuario = :pEmail and u.senhaUsuario = :pSenha",
+		Tbusuario.class);
+
+	query.setParameter("pEmail", usuario.getEmailUsuario());
+	query.setParameter("pSenha", usuario.getSenhaUsuario());
+	try {
+	    query.getSingleResult();
+	} catch (Exception e) {
+	    System.err.println(e);
+	    return false;
 	}
+	return true;
+    }
 
-	public boolean existe(Tbusuario usuario) {
+    public Tbusuario recuperarUsuario(Tbusuario usuario) {
 
-		TypedQuery<Tbusuario> query = em.createQuery(
-				"select u from Tbusuario u where u.emailUsuario = :pEmail and u.senhaUsuario = :pSenha",
-				Tbusuario.class);
-
-		query.setParameter("pEmail", usuario.getEmailUsuario());
-		query.setParameter("pSenha", usuario.getSenhaUsuario());
-		try {
-			query.getSingleResult();
-		} catch (Exception e) {
-			System.err.println(e);
-			return true;
-		}
-		return true;
-	}
-
-	public Tbusuario recuperarUsuario(Tbusuario usuario) {
-
-		TypedQuery<Tbusuario> query = em.createQuery(
-				"select u from Tbusuario u where  u.emailUsuario = :pEmail and u.senhaUsuario = :pSenha",
-				Tbusuario.class);
-		query.setParameter("pEmail", usuario.getEmailUsuario());
-		query.setParameter("pSenha", usuario.getSenhaUsuario());
-		return query.getSingleResult();
-	}
+	TypedQuery<Tbusuario> query = em.createQuery(
+		"select u from Tbusuario u where  u.emailUsuario = :pEmail and u.senhaUsuario = :pSenha",
+		Tbusuario.class);
+	query.setParameter("pEmail", usuario.getEmailUsuario());
+	query.setParameter("pSenha", usuario.getSenhaUsuario());
+	return query.getSingleResult();
+    }
 
 }

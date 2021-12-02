@@ -33,13 +33,13 @@
 							value="#{usuarioBean.usuario.emailUsuario}" />
 						<br />
 						<p style="margin: 0; font-weight: bold;">Senha</p>
-						<p:password id="Senha" value="#{loginBean.usuario.senhaUsuario}"
+						<p:password id="Senha" value="#{usuarioBean.usuario.senhaUsuario}"
 							label="Senha" required="true" />
 					</h:panelGrid>
 					<br />
 					<p:commandButton value="Novo Aluno"
 						action="#{usuarioBean.gravarAluno}" update="@form" process="@form" />
-					<p:commandButton value="Login" action="#{usuarioBean.voltar}" />
+					<p:commandButton value="Voltar" action="#{usuarioBean.voltar}" />
 				</p:panel>
 			</h:form>
 		</p:layoutUnit>

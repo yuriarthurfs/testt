@@ -20,7 +20,7 @@
 				<p:menuitem value="Início" icon="ui-icon-home" url="index.xhtml" />
 
 				<p:submenu label="Gerenciar" icon="ui-icon-gear"
-					rendered="#{loginBean.usuarioLogado.tbTipoUsuarioidTipoUsuario.idTipoUsuario == 1}">
+					rendered="#{loginBean.usuarioLogado.tbTipoUsuarioidTipoUsuario.idTipoUsuario == 2}">
 					<p:menuitem value="Usuário" icon="ui-icon-person"
 						url="usuarios.xhtml" />
 					<p:menuitem value="Provas" icon="ui-icon-person" url="provas.xhtml" />
@@ -31,7 +31,7 @@
 				</p:submenu>
 
 				<p:submenu label="Documentos" icon="ui-icon-document"
-					rendered="#{loginBean.usuarioLogado.tbTipoUsuarioidTipoUsuario.idTipoUsuario == 1}">
+					rendered="#{loginBean.usuarioLogado.tbTipoUsuarioidTipoUsuario.idTipoUsuario == 2}">
 					<p:menuitem value="Relatórios" icon="ui-icon-print"
 						url="relatorio.xhtml" />
 					<p:menuitem value="Gráficos" icon="ui-icon-print"
@@ -40,7 +40,7 @@
 				</p:submenu>
 
 				<p:submenu label="Aluno" icon="ui-icon-gear"
-					rendered="#{loginBean.usuarioLogado.tbTipoUsuarioidTipoUsuario.idTipoUsuario == 2}">
+					rendered="#{loginBean.usuarioLogado.tbTipoUsuarioidTipoUsuario.idTipoUsuario == 1}">
 					<p:menuitem value="Dados" icon="ui-icon-person" url="aluno.xhtml" />
 					<p:menuitem value="Prova" icon="ui-icon-person" url="prova.xhtml" />
 					<p:menuitem value="Nota" icon="ui-icon-person" url="nota.xhtml" />
