@@ -23,11 +23,7 @@ steps:
     JAVA_HOME: $(JAVA_HOME_8_X64)
     PATH: $(JAVA_HOME_8_X64)/bin;$(PATH)
 
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: '8'
-    jdkArchitectureOption: 'x64'
-    jdkSourceOption: 'PreInstalled'
+
 
 - task: PublishBuildArtifacts@1
   inputs:
