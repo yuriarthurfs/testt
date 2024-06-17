@@ -11,10 +11,10 @@
             <artifactId>weld-servlet</artifactId>
             <version>2.4.8.Final</version>
         </dependency>
-         <dependency>
-           <sonar.organization>yuriarthurfs</sonar.organization>
-           <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-         </dependency>
+        <dependency>
+            <sonar.organization>yuriarthurfs</sonar.organization>
+            <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        </dependency>
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
