@@ -25,8 +25,8 @@ steps:
 
 
 
-- task: PublishBuildArtifacts@1
+- task: PublishPipelineArtifact@0
+  displayName: 'Publish pipeline artifact'
   inputs:
-    pathToPublish: '$(System.DefaultWorkingDirectory)/target/*.war'
     artifactName: 'drop'
-    publishLocation: 'Container'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
